@@ -1,6 +1,13 @@
 import subprocess
+"""
+example
+filename = 'example title'
+video_file = 'audio_' + title + '.webm'  # 无音频的webm视频文件
+audio_file = 'video_' + title + '.webm'  # 含音频的webm文件
+output_file = filename + '.mp4' # 输出的mp4文件
+"""
 
-def merge_audio_video(video_file, audio_file, output_file):
+def merge(video_file, audio_file, output_file):
     # 使用适当的编解码器进行重新编码
     command = [
         'ffmpeg',
@@ -16,11 +23,3 @@ def merge_audio_video(video_file, audio_file, output_file):
 
     subprocess.run(command, check=True)
     print(f'Merged file saved as {output_file}')
-
-# 示例用法
-filename = 'Waymo Driverless Taxi User Interface Tour & Power User Tips'
-video_file = 'audio_' + filename + '.webm'  # 无音频的webm视频文件
-audio_file = 'video_' + filename + '.webm'  # 含音频的webm文件
-output_file = filename + '.mp4' # 输出的mp4文件
-
-merge_audio_video(video_file, audio_file, output_file)
